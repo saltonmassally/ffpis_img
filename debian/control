@@ -1,0 +1,12 @@
+Source: ffpis_img
+Section: unknown
+Priority: optional
+Maintainer: Stephen Pollei <stephen_pollei@comcast.net>
+Build-Depends: debhelper (>> 3.0.0)
+Standards-Version: 3.5.2
+
+Package: ffpis_img
+Architecture: any
+Depends: ${shlibs:Depends}
+Suggests: file
+Description: ffpis img library that is used by other parts of the project has lossless jpeg(pre loco style), ihead, fet, sunrast, and other generic img stuff.

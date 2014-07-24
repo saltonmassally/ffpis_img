@@ -1,0 +1,15 @@
+
+lots of cleanup work to do.
+pkg-config rpm deb needs fixing/adding
+Needs clean ups, modernization and packaging, needs gtk+ and/or QT.
+function prototypes in header files
+kill k&r style functions
+turn warning up high and then play whack a mole
+more
+export things via http://developer.gnome.org/doc/API/2.0/gdk-pixbuf/gdk-pixbuf-Module-Interface.html
+http://developer.gnome.org/doc/API/2.0/gdk-pixbuf/apa.html
+http://freshmeat.net/projects/imlib/
+http://developer.gnome.org/arch/imaging/imlib.html
+I like to have mozilla,QT,gtk+, etc be able to open and use wsq.
+I'd like to have apps just use normal libs not provide my own.
+So I'd like to spin the formats out.

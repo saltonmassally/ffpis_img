@@ -1,0 +1,82 @@
+Name:		 ffpis_img
+Summary:	 Free FingerPrint Imaging Software Math Library
+Version:	 @VERSION@
+Release:	 1
+License:	 LGPL
+Group:		 Libraries
+Source:		 http://ffpis.sourceforge.net/
+BuildRoot:	 /var/tmp/%{name}-%{version}-root
+URL:		 http://ffpis.sourceforge.net/
+Requires:	 
+BuildRequires:   
+
+%description
+img library used by other modules part of the ffpis project
+
+%package devel
+Summary:	Free FingerPrint Imaging Software Math Library
+Group:		X11/Libraries
+Requires:	%{name} = %{version}
+
+%description devel
+Static and dynamic libraries and header files for ffpis img library
+
+  
+%prep
+%setup -q -n 
+
+%build
+%ifarch alpha
+    MYARCH_FLAGS="--host=alpha-redhat-linux"
+%endif
+
+# Needed for snapshot releases.
+MYCFLAGS="$RPM_OPT_FLAGS"
+if [ ! -f configure ]; then
+    CFLAGS="$MYCFLAGS" ./autogen.sh $MYARCH_FLAGS \
+        --prefix=%{_prefix} \
+	--localstatedir=%{_localstatedir} --sysconfdir=%{_sysconfdir} \
+	--mandir=%{_mandir} --libdir=%{_libdir} \
+	--includedir=%{_includedir}
+else
+   CFLAGS="$MYCFLAGS" ./configure $MYARCH_FLAGS \
+        --prefix=%{_prefix} --localstatedir=%{_localstatedir} \
+        --sysconfdir=%{_sysconfdir} --mandir=%{_mandir} \
+        --libdir=%{_libdir} --includedir=%{_includedir} --disable-gtk-doc
+fi
+
+if [ "$SMP" != "" ]; then
+  (make "MAKE=make -k -j $SMP"; exit 0)
+  make
+else
+  make
+fi
+
+%install
+rm -rf $RPM_BUILD_ROOT
+
+make -k sysconfdir=$RPM_BUILD_ROOT%{_sysconfdir} \
+    prefix=$RPM_BUILD_ROOT%{_prefix} mandir=$RPM_BUILD_ROOT%{_mandir} \
+    localstatedir=$RPM_BUILD_ROOT%{_localstatedir} \
+    libdir=$RPM_BUILD_ROOT%{_libdir} \
+    includedir=$RPM_BUILD_ROOT%{_includedir} install
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%post -p /sbin/ldconfig
+
+%postun -p /sbin/ldconfig
+
+%files
+%defattr(-, root, root)
+
+%doc AUTHORS COPYING ChangeLog NEWS README TODO HACKING
+
+%files devel
+%defattr(-, root, root)
+
+%changelog
+* Sun Jan  4 10:47:00 PST 2004
+- put stuff in this .spec.in file 
+- this probably doesn't come close to actually working

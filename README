@@ -1,0 +1,12 @@
+
+Please see
+  http://ffpis.sourceforge.net/ and
+  http://sourceforge.net/projects/ffpis/
+Fingerprint Imaging Software -- fingerprint pattern classification,
+minutae detection, Wavelet Scalar Quantization(wsq) compression,
+ANSI/NIST-ITL 1-2000 reference implementation,
+baseline and lossless jpeg, image utilities,
+math and MLP neural net libs
+
+This is part of the img libs.
+

@@ -1,0 +1,15 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
+ffpis_includedir=@ffpis_includedir@
+ffpis_img_includedir=@ffpis_img_includedir@
+ffpis_libdir=@ffpis_libdir@
+
+
+Name: ffpis_img
+Description: Free FingerPrint Imaging Software Math Library
+Version: @VERSION@
+Requires: 
+Libs: -L${ffpis_libdir}
+Cflags: -I${ffpis_includedir}

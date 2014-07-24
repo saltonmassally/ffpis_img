@@ -1,0 +1,7 @@
+ffpis_img 0.0.1
+Sun Jan  4 10:47:56 PST 2004 sjp
+* Just getting started. Turned up warnings and changed/added prototypes
+* automake/autocong/libtool/pkconfig stuff added, not perfect yet
+* adding prototypes found some bugs
+* rpm file ffpis_img.spec.in needs lots of work but it is added
+* debian directory and rules/control added but is broken

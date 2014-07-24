@@ -1,0 +1,12 @@
+
+./autogen.sh
+#just add water
+./configure --help
+#see what settings are availible
+./configure <your args here>
+#configure it like you want it
+make
+#build the libs etc
+make install
+#install it
+

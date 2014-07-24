@@ -1,0 +1,89 @@
+
+The baseline JPEG code in src/lib/jpegb uses the Independent JPEG Group's
+compression/decompression code. For details on its copyright and
+redistribution, see the included file src/lib/jpegb/README. All other
+code was public domain, and any portion of it could be used without
+restrictions because it was created with U.S. government funding. The
+original software was produced by NIST, an agency of the U.S.
+government, and by statute is not subject to copyright in the
+United States. Recipients of this software assume all responsibilities
+associated with its operation, modification, and maintenance. To
+request a copy of the public domain version software free of charge
+on CD-ROM, please send an email request to the nist authors. When the
+project was placed on sourceforge and various reorganization, cleanups,
+autoconfing, and other work occured; the author(sjp) of this new work
+decided to not place his new work under the public domain. His work
+is availible under a combination of GNU LGPL, and/or MPL licenses.
+There are no Warranties, it's AS IS; see below for details.
+This work still contains much that should still be considered as
+being in the public domain, however to avoid infringing on
+copyrights please ask for the original version from NIST, if for
+some reason the GNU LGPL and/or MPL is too restrictive for your purposes..
+
+In source code an acceptible notice for me would be
+/*
+ * The contents of this file are subject to the Mozilla Public License
+ * Version 1.1 or later.
+ * Alternatively, the contents of this file may be used under the terms
+ * of the GNU Lesser General Public License version 2.1 or later.
+ * see COPYING, LGPL-2.1.txt, and MPL-1.1.txt for details.
+ */
+Any failure on any party to include these notices doesn't absolve your
+obligation to respect the copyrights of the copyright holders by following
+one or the other of the licenses or both licenses.
+
+references
+
+http://www.fsf.org/licenses/licenses.html#LGPL
+http://www.fsf.org/licenses/lgpl.txt
+http://www.fsf.org/licenses/lgpl.html
+The GNU Lesser General Public License, or GNU LGPL for short.
+    This is a free software license, but not a strong copyleft license, because it permits linking with non-free modules. It is compatible with the GNU GPL.
+Between version 2 and 2.1, the GNU LGPL was renamed from the GNU Library General Public License to the GNU Lesser General Public License to better reflect its actual purpose. Namely, it is not just for libraries.
+
+
+http://www.mozilla.org/MPL/MPL-1.1.html
+http://www.mozilla.org/MPL/MPL-1.1.txt
+
+The Mozilla Public License (MPL).
+    This is a free software license which is not a strong copyleft;
+unlike the X11 license, it has some complex restrictions that
+make it incompatible with the GNU GPL. That is, a module
+covered by the GPL and a module covered by the MPL cannot
+legally be linked together.
+
+    However, MPL 1.1 has a provision (section 13) that allows
+a program (or parts of it) to offer a choice of another license
+as well. If part of a program allows the GNU GPL as an alternate
+choice, or any other GPL-compatible license as an alternate
+choice, that part of the program has a GPL-compatible license. 
+
+BECAUSE THE SOURCECODE IS LICENSED FREE OF CHARGE, THERE IS NO
+WARRANTY FOR THE SOURCECODE TO THE EXTENT PERMITTED BY APPLICABLE LAW.
+EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR
+OTHER PARTIES PROVIDE THE LIBRARY "AS IS" WITHOUT WARRANTY OF ANY
+KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE.  THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE
+LIBRARY IS WITH YOU.  SHOULD THE LIBRARY PROVE DEFECTIVE, YOU ASSUME
+THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
+
+IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN
+WRITING WILL ANY COPYRIGHT HOLDER, AUTHOR, OR ANY OTHER PARTY WHO MAY MODIFY
+AND/OR REDISTRIBUTE THE LIBRARY AS PERMITTED ABOVE, BE LIABLE TO YOU
+FOR DAMAGES, INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR
+CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THE
+LIBRARY (INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING
+RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A
+FAILURE OF THE LIBRARY TO OPERATE WITH ANY OTHER SOFTWARE), EVEN IF
+SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH
+DAMAGES.
+
+CODE IS PROVIDED ON AN "AS IS" BASIS,
+WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING,
+WITHOUT LIMITATION, WARRANTIES THAT THE CODE IS FREE OF
+DEFECTS, MERCHANTABLE, FIT FOR A PARTICULAR PURPOSE OR NON-INFRINGING.
+THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE CODE
+IS WITH YOU. SHOULD ANY CODE PROVE DEFECTIVE IN ANY RESPECT,
+YOU (NOT THE INITIAL DEVELOPER OR ANY OTHER CONTRIBUTOR) ASSUME THE
+COST OF ANY NECESSARY SERVICING, REPAIR OR CORRECTION.

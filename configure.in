@@ -1,0 +1,100 @@
+# Process this file with autoconf to produce a configure script.
+PACKAGE=ffpis_img
+VERSION=0.0.2
+AC_INIT(ffpis_img, 0.0.2, stephen_pollei@comcast.net)
+AC_CONFIG_AUX_DIR([aux_dir])
+AC_CANONICAL_SYSTEM
+AC_CONFIG_SRCDIR([config.h.in])
+AM_CONFIG_HEADER([config.h])
+AC_PREREQ(2.12)
+AM_INIT_AUTOMAKE
+dnl AC_PACKAGE_NAME
+AC_COPYRIGHT( [Copyright (C)2003,2004 Stephen Pollei] )
+
+dnl extra directories have not tested all of it properly
+AC_SUBST([ffpis_includedir], [${includedir}/ffpis])
+AC_SUBST([ffpis_img_includedir], [${ffpis_includedir}/img])
+AC_SUBST([ffpis_libdir], [${libdir}/ffpis])
+AC_SUBST([pkgconfigdir], [${libdir}/pkgconfig])
+AC_ARG_WITH([ffpis-includedir], [  --with-ffpis-includedir=PATH    path to installed ffpis header files ])
+AC_ARG_WITH([ffpis-img-includedir], [  --with-ffpis-img-includedir=PATH    path to installed ffpis img header files ])
+AC_ARG_WITH([ffpis-libdir], [  --with-ffpis-libdir=PATH    path to installed ffpis lib files ])
+AC_ARG_WITH([pkgconfigdir], [  --with-pkgconfigdir=PATH    path to installed pkgconfig files])
+if test "x$with_ffpis_includedir" = "x" ; then
+  : 
+else
+  ffpis_includedir=$with_ffpis_includedir
+fi
+if test "x$with_ffpis_img_includedir" = "x" ; then
+  : 
+else
+  ffpis_img_includedir=$with_ffpis_img_includedir
+fi
+if test "x$with_ffpis_libdir" = "x" ; then
+  : 
+else
+  ffpis_libdir=$with_ffpis_libdir
+fi
+if test "x$with_pkgconfigdir" = "x" ; then
+  : 
+else
+  pkgconfigdir=$with_pkgconfigdir
+fi
+
+dnl enable or disable stuff
+AC_DEFUN([SP_SUPPORT],
+[ if test "x$2" = "x"; then
+    sp_support_default="yes" ;
+   else
+    sp_support_default=$2
+  fi
+  AC_ARG_ENABLE([$1],[--enable-$1 default is ($sp_support_default)],
+    [],[enableval=$sp_support_default] )
+  if test "x$enableval" = "xyes" ; then
+    AC_DEFINE([$1_SUPPORTED],[1],[$1 is supported and enabled?])
+    $1_SUPPORTED="yes"
+  fi]
+)
+
+SP_SUPPORT([jpegb])
+
+# Checks for programs.
+AC_PROG_CC
+AC_PROG_LIBTOOL
+AC_PROG_RANLIB
+AC_PROG_CXX
+AC_PROG_CPP
+AC_PROG_INSTALL
+AC_PROG_LN_S
+AC_PROG_MAKE_SET
+AC_PROG_AWK
+
+# Checks for libraries.
+AC_CHECK_LIB([m],[pow])
+PKG_CHECK_MODULES(FFPIS_UTIL, ffpis_util >= 0.0.1)
+if test "x${jpegb_SUPPORTED}" = "xyes" ; then
+  PKG_CHECK_MODULES(JPEGB, jpegb >= 0.0.1
+      ,,[echo try using \-\-disable-jpegb; exit 1])
+fi
+AC_PATH_X
+AC_PATH_XTRA
+
+# Checks for header files.
+AC_HEADER_DIRENT
+AC_HEADER_TIME
+AC_HEADER_STDC
+AC_CHECK_HEADERS([stddef.h stdlib.h string.h strings.h sys/param.h unistd.h limits.h malloc.h sys/time.h])
+
+# Checks for typedefs, structures, and compiler characteristics.
+AC_C_CONST
+AC_TYPE_SIZE_T
+AC_STRUCT_TM
+
+# Checks for library functions.
+AC_FUNC_MALLOC
+AC_FUNC_STAT
+AC_FUNC_FORK
+AC_CHECK_FUNCS([strchr strrchr gettimeofday memset mkdir pow sqrt strdup])
+
+AC_CONFIG_FILES([Makefile src/Makefile debian/Makefile ffpis_img.pc ffpis_img.spec])
+AC_OUTPUT
